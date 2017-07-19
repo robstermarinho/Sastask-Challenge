@@ -7,7 +7,7 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Item extends Eloquent
 {
-    protected $collection = 'intes';
+    protected $collection = 'itens';
 
     const CORRECT_ITEM = 'true';
     const INCORRECT_ITEM = 'false';

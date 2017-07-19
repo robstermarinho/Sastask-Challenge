@@ -1,6 +1,7 @@
 <?php
 
 
+use App\User;
 use MongoDB\Client as Mongo;
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('mongo', function(Request $request) {
-    $collection = (new Mongo)->mydatabase->mycollection;
-    return $collection->find()->toArray();
+Route::get('users', function() {
+    $users = User::all();
+    dd($users);
 });
