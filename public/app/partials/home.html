@@ -1,0 +1,35 @@
+<div  class="container">
+	<div class="row">
+		<div class="col-md-4 col-lg-4">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">{{title}}
+				</div>
+				<div class="panel-body">
+
+					<h4 align="center"> 
+						<span ng-show="current_user.role == 'true'">
+							<span class="glyphicon glyphicon-education"></span> Professor 
+						</span> 
+						<span ng-show="current_user.role == 'false'">
+							<span class="glyphicon glyphicon-user"></span> Aluno 
+						</span> 
+						{{current_user.name}}
+					</h4>
+
+					<img class="img-thumbnail img-responsive user_image" src="{{current_user.photo}}" alt="photo"/>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 col-lg-8">
+
+		<teacher-options ng-show="current_user.role == 'true'">	
+		</teacher-options>
+
+		<student-options ng-show="current_user.role == 'false'">	
+		</student-options>
+
+		</div>		
+	</div>
+</div>

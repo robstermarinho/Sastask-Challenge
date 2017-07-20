@@ -14,16 +14,13 @@ use MongoDB\Client as Mongo;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return redirect('home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-
-Route::get('users', function() {
-    $users = User::all();
-    dd($users);
-});
+// It return the current user information
+Route::get('/current_user', 'UserController@show_current_user');
