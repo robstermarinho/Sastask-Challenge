@@ -53,10 +53,27 @@ Execute o seguinte comando:
 php artisan key:generate
 ```
 
+# Docker
+
+Esta aplicação utiliza o Docker para configuração do ambiente. Para rodar os containers vá até a pasta `dock` e crie um arquivo `.env` com base no arquivo `env-example`. Depois execute o seguinte comando:
+
+```
+docker-compose up -d nginx mongo
+```
+
+Não esqueça de configurar o compartilhamento do diretório do projeto no Docker em Docker -> Preferences... -> File Sharing.
+
+Para entrar no workspace da aplicação execute o comando:
+
+```
+docker-compose exec workspace bash
+```
+
+
 ### Database and Seed
 
 Este app fornece algumas migrations e seed para as tabelas do banco.
-Execute o seguinte comando no diretório root do seu projeto para criar as tabelas no banco de dados e alimenta-las:
+Execute o seguinte comando dentro do workspace gerado pelo docker para criar as tabelas no banco de dados e alimenta-las:
 
 ```
 php artisan migrate
@@ -70,15 +87,8 @@ O processo de seeding cria alguns usuários do tipo aluno no banco de dados com 
 | xavier@sas.com | TEACHER_USER | secret |
 
 
-# Docker
 
-Esta aplicação utiliza o Docker para configuração do ambiente. Para rodar os containers vá até a pasta `laradock` e crie um arquivo `.env` com base no arquivo `env-example` pré-configurado. Depois execute o seguinte comando:
-
-```
-docker-compose up -d nginx mongo
-```
-
-Verifique o depoly da aplicação no endereço abaixo em seu browser:
+## Verifique o depoly da aplicação no endereço abaixo em seu browser:
 
 ```
 127.0.0.1
