@@ -9,6 +9,10 @@ class Item extends Eloquent
 {
     protected $collection = 'itens';
 
+    protected $fillable = [
+        'description', 'letter', 'status','question_id'
+    ];
+
     const CORRECT_ITEM = 'true';
     const INCORRECT_ITEM = 'false';
 

@@ -15,12 +15,12 @@ use MongoDB\Client as Mongo;
 */
 
 Route::get('/home', function () {
-    return redirect('home');
+    return redirect('/');
 });
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
 
 // It return the current user information
 Route::get('/current_user', 'UserController@show_current_user');

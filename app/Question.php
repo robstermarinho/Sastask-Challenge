@@ -10,6 +10,11 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 class Question extends Eloquent
 {
+
+    protected $fillable = [
+        'description', 'image', 'teacher_id'
+    ];
+
     public function questionlists(){
         return $this->belongsToMany(Questionlist::class);
     }

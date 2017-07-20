@@ -17,17 +17,17 @@
 						{{current_user.name}}
 					</h4>
 
-					<img class="img-thumbnail img-responsive user_image" src="{{current_user.photo}}" alt="photo"/>
+					<img ng-show="current_user.name != null" class="img-thumbnail img-responsive user_image" src="{{current_user.photo}}" alt="photo"/>
 
 				</div>
 			</div>
 		</div>
 		<div class="col-md-8 col-lg-8">
 
-		<teacher-options ng-show="current_user.role == 'true'">	
+		<teacher-options teacherid="{{current_user._id}}" ng-show="current_user.role == 'true'">	
 		</teacher-options>
 
-		<student-options ng-show="current_user.role == 'false'">	
+		<student-options student_id="{{current_user._id}}" ng-show="current_user.role == 'false'">	
 		</student-options>
 
 		</div>		

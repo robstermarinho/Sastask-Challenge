@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+/**
+ * Questions
+ */
+Route::resource('questions', 'QuestionController', ['only' => ['index', 'show']]);
+
+/**
+ * Teachers
+ */
+Route::resource('teachers', 'TeacherController', ['only' => ['index', 'show']]);
+Route::resource('teachers.questions', 'TeacherQuestionController', ['except' => ['create', 'show', 'edit']]);
