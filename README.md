@@ -55,7 +55,16 @@ php artisan key:generate
 
 # Docker
 
-Esta aplicação utiliza o Docker para configuração do ambiente. Para rodar os containers vá até a pasta `dock` e crie um arquivo `.env` com base no arquivo `env-example`. Depois execute o seguinte comando:
+Esta aplicação utiliza o Docker para configuração do ambiente. Para rodar os containers vá até a pasta `dock` e crie um arquivo `.env` com base no arquivo `env-example` e defina as seguintes
+variáveis como true:
+
+```
+WORKSPACE_INSTALL_NODE=true 
+WORKSPACE_INSTALL_MONGO=true
+PHP_FPM_INSTALL_MONGO=true
+```
+
+Depois execute o seguinte comando:
 
 ```
 docker-compose up -d nginx mongo
@@ -66,7 +75,7 @@ Não esqueça de configurar o compartilhamento do diretório do projeto no Docke
 Para entrar no workspace da aplicação execute o comando:
 
 ```
-docker-compose exec workspace bash
+docker-compose exec --user=laradock workspace bash
 ```
 
 
@@ -88,7 +97,7 @@ O processo de seeding cria alguns usuários do tipo aluno no banco de dados com 
 
 
 
-## Verifique o depoly da aplicação no endereço abaixo em seu browser:
+Verifique o depoly da aplicação no endereço abaixo em seu browser:
 
 ```
 127.0.0.1
