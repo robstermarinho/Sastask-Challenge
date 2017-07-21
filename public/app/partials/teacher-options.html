@@ -1,10 +1,31 @@
-<div class="panel panel-default">
+<div class="panel panel-default" >
 	<div class="panel-body">
 		<uib-tabset active="activeJustified" justified="true">
 			<uib-tab index="0" heading="Questões">
-				<questions-teacher teacherid="{{teacherid}}">
-				</questions-teacher>
+			<table class="table table-border">
+				<tr>
+					<th>Enunciado</th>
+					<th></th>
+					<th></th>
+				</tr>
+					
+				
+				<tr ng-repeat="question in teacher_questions">
+					
+					<td>
+						<a href="#">{{question.description}}</a>
+					</td>
+					<td>
+						<button class="btn btn-warning"> Editar</button>
+					</td>
 
+					<td>
+						<button class="btn btn-danger"> Excluir</button>
+					</td>
+				</tr>
+			</table>
+	
+			<tea>
 			</uib-tab>
 
 			<uib-tab index="1" heading="Listas">Listas

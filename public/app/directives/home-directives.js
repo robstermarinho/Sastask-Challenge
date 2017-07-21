@@ -1,23 +1,31 @@
 angular.module('homeDirectives', [])
-.directive('teacherOptions', function(){
+.directive('teacherOptions', ['userService', function(userService){
 	return{
 		restrict : 'AE',
 		scope : {
 			teacherid : '@'
 		},
-		templateUrl : 'app/partials/teacher-options.html',
-
+		link: function (scope, element, attr) {
+			attr.$observe('teacherid', function(id) {
+				userService.teacherQuestions(id).then(function(reponse){
+					if(reponse.status == 200){
+						scope.teacher_questions = reponse.data;
+					}
+				});
+			});
+		},
+		templateUrl : 'app/partials/teacher-options.html'
 	};
-})
+}])
 .directive('questionsTeacher', function(){
 	return {
 		restrict : "E",
 		scope : {
-			teacherid : '@',
+			id : '@',
 		},
 		controller: function($scope, userService) {
 			$scope.aaa = "3333333";
-			userService.teacherQuestions(teacherid).then(function(reponse){
+			userService.teacherQuestions(id).then(function(reponse){
 				if(reponse.status == 200){
 					$scope.teacher_questions = reponse.data;
 				}

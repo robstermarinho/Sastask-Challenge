@@ -15,7 +15,7 @@ angular.module('sastask').service('userService', ['$http','$q', function ($http,
 	// Get the teacher questions
 	this.teacherQuestions = function(teacher_id){
 		return $q(function(resolve, reject){
-			$http.post('/api/teachers/' + teacher_id + '/questions')
+			$http.get('/api/teachers/' + teacher_id + '/questions')
 			.then(function successCallback(response) {
 				resolve(response);
 			}, function errorCallback(error) {
