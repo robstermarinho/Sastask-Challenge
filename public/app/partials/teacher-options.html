@@ -2,30 +2,7 @@
 	<div class="panel-body">
 		<uib-tabset active="activeJustified" justified="true">
 			<uib-tab index="0" heading="Questões">
-			<table class="table table-border">
-				<tr>
-					<th>Enunciado</th>
-					<th></th>
-					<th></th>
-				</tr>
-					
-				
-				<tr ng-repeat="question in teacher_questions">
-					
-					<td>
-						<a href="#">{{question.description}}</a>
-					</td>
-					<td>
-						<button class="btn btn-warning"> Editar</button>
-					</td>
-
-					<td>
-						<button class="btn btn-danger"> Excluir</button>
-					</td>
-				</tr>
-			</table>
-	
-			<tea>
+				<questions-teacher></questions-teacher>
 			</uib-tab>
 
 			<uib-tab index="1" heading="Listas">Listas
@@ -38,3 +15,19 @@
 		</uib-tabset>
 	</div>
 </div>
+
+<script type="text/ng-template" id="editQuestion.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title-{{name}}">{{title}}</h3>
+	</div>
+	<div class="modal-body" id="modal-body-{{name}}">
+		<p>
+			<b>
+				{{question.description}}
+			</b>
+		</p>
+		<ul>
+			<li ng-repeat="item in question.itens"><input type="checkbox" name=""/> {{item.description}}</li>
+		</ul>
+	</div>
+</script>

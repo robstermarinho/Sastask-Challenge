@@ -96,7 +96,7 @@
 
 <!-- Angular controllers -->
 <script src="<?=asset('app/controllers/home-controller.js')?>"></script>
-
+<script src="<?=asset('app/controllers/teacher-options-controller.js')?>"></script>
 <!-- Modals -->
 
 
